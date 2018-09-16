@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as populationAction from '../../../actions/populationAction';
 import PopPieChart from '../../molecules/PopPieChart';
+import moment from 'moment';
+
+const currYear = moment().year();
 
 const totalText = {
     fontSize: '18px',
     fontWeight: '400'
 }
 
-class ResultPage extends Component {
+class AdultAge extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,29 +28,28 @@ class ResultPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps', nextProps.usPopData);
         if (this.props.indPopData !== nextProps.indPopData) {
             this.setState({
-                indPieData: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ),
-                indPopTotal: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                indPieData: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ),
+                indPopTotal: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.chinaPopData !== nextProps.chinaPopData) {
             this.setState({
-                chinaPieData: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ),
-                chinaPopTotal: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                chinaPieData: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ),
+                chinaPopTotal: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.usPopData !== nextProps.usPopData) {
             this.setState({
-                usPieData: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ),
-                usPopTotal: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                usPieData: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ),
+                usPopTotal: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.indoPopData !== nextProps.indoPopData) {
             this.setState({
-                indoPieData: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ),
-                indoPopTotal: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 32 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                indoPieData: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ),
+                indoPopTotal: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 20 && item.name < 41 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
     }
@@ -55,12 +57,10 @@ class ResultPage extends Component {
 
     showPopGraphs() {
         console.log('Inside showPopGraphs ');
-        this.props.init();
+        this.props.init(currYear);
     }
     render() {
-        if(this.props.usPopData) {
-            console.log('this.props.indPopData ', this.props.usPopData)
-        }
+
         return (
             <div>
               {this.state.indPopTotal && <p style={totalText}> {this.state.indPopTotal} </p>}
@@ -84,15 +84,15 @@ const mapStateToProps = ({ dataReducer }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    init: () => {
-        dispatch(populationAction.getIndPopData());
-        dispatch(populationAction.getChinaPopData());
-        dispatch(populationAction.getUSPopData());
-        dispatch(populationAction.getIndoPopData());
+    init: (currYear) => {
+        dispatch(populationAction.getIndPopData(currYear));
+        dispatch(populationAction.getChinaPopData(currYear));
+        dispatch(populationAction.getUSPopData(currYear));
+        dispatch(populationAction.getIndoPopData(currYear));
     }
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ResultPage);
+)(AdultAge);

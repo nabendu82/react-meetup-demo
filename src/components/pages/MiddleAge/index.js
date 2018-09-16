@@ -11,7 +11,7 @@ const totalText = {
     fontWeight: '400'
 }
 
-class HomePage extends Component {
+class MiddleAge extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,33 +30,33 @@ class HomePage extends Component {
     componentWillReceiveProps(nextProps) {
         if (this.props.indPopData !== nextProps.indPopData) {
             this.setState({
-                indPieData: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ),
-                indPopTotal: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                indPieData: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ),
+                indPopTotal: nextProps.indPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.chinaPopData !== nextProps.chinaPopData) {
             this.setState({
-                chinaPieData: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ),
-                chinaPopTotal: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                chinaPieData: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ),
+                chinaPopTotal: nextProps.chinaPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.usPopData !== nextProps.usPopData) {
             this.setState({
-                usPieData: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ),
-                usPopTotal: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                usPieData: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ),
+                usPopTotal: nextProps.usPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
         if (this.props.indoPopData !== nextProps.indoPopData) {
             this.setState({
-                indoPieData: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ),
-                indoPopTotal: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 0 && item.name < 21 ).map(item => item.value).reduce((acc, curr) => acc + curr),
+                indoPieData: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ),
+                indoPopTotal: nextProps.indoPopData.map(item => {return {name: item.age, value:item.total}}).filter(item => item.name > 40 && item.name < 61 ).map(item => item.value).reduce((acc, curr) => acc + curr),
             });
         }
     }
 
 
     showPopGraphs() {
-        console.log('Inside showPopGraphs currYear ', typeof currYear);
+        console.log('Inside showPopGraphs ');
         this.props.init(currYear);
     }
     render() {
@@ -94,4 +94,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomePage);
+)(MiddleAge);
