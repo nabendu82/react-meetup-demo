@@ -1,0 +1,4 @@
+export const GET_INDIA_DATA = 'GET_INDIA_DATA';
+export const GET_CHINA_DATA = 'GET_CHINA_DATA';
+export const GET_US_DATA = 'GET_US_DATA';
+export const GET_INDONESIA_DATA = 'GET_INDONESIA_DATA';
