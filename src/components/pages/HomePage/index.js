@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as populationAction from '../../../actions/populationAction';
 import PopPieChart from '../../molecules/PopPieChart';
 import moment from 'moment';
+import './index.css';
+
 
 const currYear = moment().year();
 
@@ -61,15 +63,26 @@ class HomePage extends Component {
     }
     render() {
         return (
-            <div>
-              {this.state.indPopTotal && <p style={totalText}> {this.state.indPopTotal} </p>}
-              {this.state.indPieData && <PopPieChart popPieData={this.state.indPieData} />}
-              {this.state.chinaPopTotal && <p style={totalText}> {this.state.chinaPopTotal} </p>}
-              {this.state.chinaPieData && <PopPieChart popPieData={this.state.chinaPieData} />}
-              {this.state.usPopTotal && <p style={totalText}> {this.state.usPopTotal} </p>}
-              {this.state.usPieData && <PopPieChart popPieData={this.state.usPieData} />}
-              {this.state.indoPopTotal && <p style={totalText}> {this.state.indoPopTotal} </p>}
-              {this.state.indoPieData && <PopPieChart popPieData={this.state.indoPieData} />}
+            <div className="grid__area">
+                <div className="header__text" style={{textAlign: 'center'}}>
+                    Population Distribution : 1 to 20 years
+                </div>
+                <div className="pieChart1">
+                    {this.state.indPopTotal && <p style={totalText}> India 🇮🇳 - {this.state.indPopTotal} </p>}
+                    {this.state.indPieData && <PopPieChart popPieData={this.state.indPieData} />}
+                </div>
+                <div className="pieChart2">
+                    {this.state.chinaPopTotal && <p style={totalText}> China 🇨🇳 - {this.state.chinaPopTotal} </p>}
+                    {this.state.chinaPieData && <PopPieChart popPieData={this.state.chinaPieData} />}
+                </div>
+                <div className="pieChart3">
+                    {this.state.usPopTotal && <p style={totalText}> United States 🇺🇸 - {this.state.usPopTotal} </p>}
+                    {this.state.usPieData && <PopPieChart popPieData={this.state.usPieData} />}
+                </div>
+                <div className="pieChart4">
+                    {this.state.indoPopTotal && <p style={totalText}> Indonesia 🇮🇩 - {this.state.indoPopTotal} </p>}
+                    {this.state.indoPieData && <PopPieChart popPieData={this.state.indoPieData} />}
+                </div>
             </div>
         )
     }

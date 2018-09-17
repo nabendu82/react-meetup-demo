@@ -2,7 +2,7 @@ import React from 'react';
 import { PieChart, Pie, Sector, Cell } from 'recharts';
 import { FlexBoxNormal } from '../StyledComponents';
 
-const COLORS = ['#3DCC91', '#FFB366', '#FF7373', '#336fce', '#33c6ce', '#ce33bb', '#daa520', '#C0C0C0', '#7d18e2', '#ffc600', '#f0e68c'];
+const COLORS = ['#3DCC91', '#FFB366', '#FF7373', '#336fce', '#33c6ce', '#ce33bb', '#daa520', '#C0C0C0', '#7d18e2', '#ffc600', '#f0e68c', '#bdb76b', '#ff69b4', '#0000cd', '#dda0dd', '#adff2f', '#8b008b', '#cd5c5c', '#ba55d3', '#b0e0e6', '#9acd32 '];
 
 const flexWwrap = {
     display: 'flex',

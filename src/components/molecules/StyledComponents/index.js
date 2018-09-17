@@ -12,6 +12,26 @@ const GridHome = styled.div`
   align-items: center;
 `;
 
+const GridArea = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 10px;
+`;
+
+const GridCentered = styled.div`
+  display: grid;
+  justify-items: center;
+`;
+
+const HeaderText = styled.div`
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 20px;
+    font-weight: 800;
+`;
+
 const HeaderWrapper = styled.div`
     background: var(--yellow);
     height: 5%;
@@ -25,6 +45,7 @@ const FlexBoxNormal = styled.div`
   font-weight: bold;
   line-height: 1.25;
   color: #333333;
+  flex-wrap: ${ props => (props.wrapped ? 'wrap' : 'nowrap') };
 `;
 
 const FlexResult = styled.div`
@@ -40,6 +61,7 @@ const FlexBoxRev = styled.div`
     margin-right: ${ props => (props.noRightMargin ? '' : '8%') };
     align-items: ${ props => (props.toCenter ? 'center' : 'flex-start') };
     justify-content: center;
+    width: ${ props => (props.someWidth ? '700px' : '') };
 `;
 
 const FlexRevRadio = styled.div`
@@ -67,4 +89,4 @@ const HeaderTitle = styled.div`
                  0px 18px 23px rgba(0,0,0,0.1);
 `;
 
-export { PageWrapper, GridHome, FlexBoxNormal, FlexBoxNav, HeaderTitle, HeaderWrapper, FlexBoxRev, FlexRevRadio, FlexResult };
+export { PageWrapper, GridHome, GridArea, HeaderText, GridCentered, FlexBoxNormal, FlexBoxNav, HeaderTitle, HeaderWrapper, FlexBoxRev, FlexRevRadio, FlexResult };

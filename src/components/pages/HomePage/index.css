@@ -1,0 +1,42 @@
+.grid__area {
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      "header header"
+      "pie__1 pie__2"
+      "pie__3 pie__4"
+}
+
+.header__text {
+    grid-area: header;
+    font-size: 20px;
+    font-weight: 800;
+    display: grid;
+    align-items: center;
+}
+
+.pieChart1 {
+    grid-area: pie__1;
+    display: grid;
+    justify-items: center;
+}
+
+.pieChart2 {
+    grid-area: pie__2;
+    display: grid;
+    justify-items: center;
+}
+
+.pieChart3 {
+    grid-area: pie__3;
+    display: grid;
+    justify-items: center;
+}
+
+.pieChart4 {
+    grid-area: pie__4;
+    display: grid;
+    justify-items: center;
+}
