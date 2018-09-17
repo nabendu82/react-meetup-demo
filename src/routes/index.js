@@ -6,6 +6,7 @@ import MiddleAge from '../components/pages/MiddleAge';
 import SeniorAge from '../components/pages/SeniorAge';
 import OldAge from '../components/pages/OldAge';
 import NavigationLink from '../components/molecules/NavigationLink';
+import SocialLink from '../components/molecules/SocialLink';
 import { FlexBoxNav, HeaderTitle, FlexBoxNormal, HeaderWrapper } from '../components/molecules/StyledComponents';
 
 const navListElem = [
@@ -14,6 +15,12 @@ const navListElem = [
     { name: 'Middle-Aged', href: '/middle' },
     { name: 'Senior', href: '/senior' },
     { name: 'Old', href: '/old' }
+  ];
+
+const socialListElem = [
+    { name: 'Twitter', href: 'https://twitter.com/nabendu82' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nabendu-biswas-42aa4522/' },
+    { name: 'Medium', href: 'https://medium.com/@nabendu82' }
   ];
 
  class Routes extends Component {
@@ -28,6 +35,16 @@ const navListElem = [
                  />
              );
          });
+
+         const socialList = socialListElem.map((item, index) => {
+            return (
+                <SocialLink
+                    name={ item.name }
+                    href={ item.href }
+                    key={ index }
+                />
+            );
+        });
          return (
 
              <BrowserRouter>
@@ -49,6 +66,14 @@ const navListElem = [
                              <Route path="/" component={ HomePage } />
                          </Switch>
                      </div>
+                     <HeaderWrapper thinner>
+                         <FlexBoxNav toBtw>
+                             <FlexBoxNormal>
+                                 {socialList}
+                             </FlexBoxNormal>
+                             <HeaderTitle small>Created in 🇮🇳 by Nabendu</HeaderTitle>
+                         </FlexBoxNav>
+                     </HeaderWrapper>
                  </div>
              </BrowserRouter>
 

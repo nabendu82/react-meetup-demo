@@ -34,7 +34,7 @@ const HeaderText = styled.div`
 
 const HeaderWrapper = styled.div`
     background: var(--yellow);
-    height: 5%;
+    height: ${ props => (props.thinner ? '3%' : '5%') };
     padding: 1%;
 `;
 
@@ -79,7 +79,7 @@ const FlexBoxNav = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-    font-size: ${ props => (props.small ? '18px' : '25px') };
+    font-size: ${ props => (props.small ? '12px' : '25px') };
     margin-top: ${ props => (props.topMargin ? '5%' : '') };
     font-weight: bold;
     line-height: 1.25;
