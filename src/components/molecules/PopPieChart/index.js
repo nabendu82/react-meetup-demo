@@ -52,7 +52,7 @@ const renderActiveShape = props => {
     return (
       <g>
         {/* comment below for center text to hide */}
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} style={{fontSize: '18px'}}>
           {payload.name}
         </text>
         <Sector
@@ -83,6 +83,7 @@ const renderActiveShape = props => {
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
           textAnchor={textAnchor}
+          style={{fontSize: '18px'}}
           fill="#333"
         >{`${value}`}</text>
         <text
@@ -90,6 +91,7 @@ const renderActiveShape = props => {
           y={ey}
           dy={18}
           textAnchor={textAnchor}
+          style={{fontSize: '12px'}}
           fill="#999"
         >
           {`(${(percent * 100).toFixed(2)}%)`}
