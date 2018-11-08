@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as populationAction from '../../../actions/populationAction';
 import PopPieChart from '../../molecules/PopPieChart';
+import { GridArea, FlexBoxRev, HeaderText } from '../../molecules/StyledComponents';
 import moment from 'moment';
 
 const currYear = moment().year();
@@ -62,16 +63,30 @@ class OldAge extends Component {
     render() {
 
         return (
-            <div>
-              {this.state.indPopTotal && <p style={totalText}> {this.state.indPopTotal} </p>}
-              {this.state.indPieData && <PopPieChart popPieData={this.state.indPieData} />}
-              {this.state.chinaPopTotal && <p style={totalText}> {this.state.chinaPopTotal} </p>}
-              {this.state.chinaPieData && <PopPieChart popPieData={this.state.chinaPieData} />}
-              {this.state.usPopTotal && <p style={totalText}> {this.state.usPopTotal} </p>}
-              {this.state.usPieData && <PopPieChart popPieData={this.state.usPieData} />}
-              {this.state.indoPopTotal && <p style={totalText}> {this.state.indoPopTotal} </p>}
-              {this.state.indoPieData && <PopPieChart popPieData={this.state.indoPieData} />}
-            </div>
+            <Fragment>
+                <HeaderText>
+                    Population Distribution : 81 to 99 years
+                    </HeaderText>
+                <GridArea>
+
+                    <FlexBoxRev toCenter>
+                        {this.state.indPopTotal && <p style={totalText}> India 🇮🇳 - {this.state.indPopTotal} </p>}
+                        {this.state.indPieData && <PopPieChart popPieData={this.state.indPieData} />}
+                    </FlexBoxRev>
+                    <FlexBoxRev toCenter>
+                        {this.state.chinaPopTotal && <p style={totalText}> China 🇨🇳 - {this.state.chinaPopTotal} </p>}
+                        {this.state.chinaPieData && <PopPieChart popPieData={this.state.chinaPieData} />}
+                    </FlexBoxRev>
+                    <FlexBoxRev toCenter>
+                        {this.state.usPopTotal && <p style={totalText}> United States 🇺🇸 - {this.state.usPopTotal} </p>}
+                        {this.state.usPieData && <PopPieChart popPieData={this.state.usPieData} />}
+                    </FlexBoxRev>
+                    <FlexBoxRev toCenter>
+                        {this.state.indoPopTotal && <p style={totalText}> Indonesia 🇮🇩 - {this.state.indoPopTotal} </p>}
+                        {this.state.indoPieData && <PopPieChart popPieData={this.state.indoPieData} />}
+                    </FlexBoxRev>
+                </GridArea>
+            </Fragment>
         )
     }
 }
